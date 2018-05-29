@@ -11,6 +11,7 @@ RUN apt-get update -qy && apt-get install -qy git-core \
 
 # Configure
 RUN printf "\nsendmail_path = /usr/sbin/ssmtp -t" >> /usr/local/etc/php/php.ini
+RUN printf "\nerror_reporting = E_ALL|E_STRICT -t" >> /usr/local/etc/php/php.ini
 COPY ext-xdebug.ini /usr/local/etc/php/conf.d/ext-xdebug.ini
 COPY ssmtp.conf /etc/ssmtp/ssmtp.conf
 
